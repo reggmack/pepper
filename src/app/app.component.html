@@ -3,5 +3,5 @@
 </h1>
 
 <ul>
-    <li *ngFor="let c of cuisines"> {{ c.$value }}</li>
+    <li *ngFor="let c of cuisines | async"> {{ c.$value }}</li>
 </ul>
