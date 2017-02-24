@@ -6,10 +6,15 @@ import { AngularFire } from 'angularfire2';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'The Pepperiest!';
+    title = 'The Pepperiest!';
+    cuisines;
   
-  constructor(af: AngularFire) {
-    console.log(af);
-  }
+    constructor(af: AngularFire) {
+        af.database.list('/cuisines').subscribe(x => {
+            this.cuisines = x;
+            console.log(this.cuisines);
+        });
+    }
 }
