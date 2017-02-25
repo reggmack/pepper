@@ -1,0 +1,39 @@
+{
+  "cuisines" : [ null, "Italian", "Indian", "Thai", "Japanese", "Spanish" ],
+  "features" : [ null, "Wi-Fi", "Live Music", "Delivery" ],
+  "restaurants" : [ null, {
+    "address" : {
+      "city" : "Camberwell"
+    },
+    "cuisine" : 1,
+    "features" : [ null, true, true ],
+    "name" : "Amici",
+    "rating" : 4
+  }, {
+    "address" : {
+      "city" : "Malvern"
+    },
+    "cuisine" : 5,
+    "features" : [ null, true, true, true ],
+    "name" : "Remy's Spanish Restaurant",
+    "rating" : 5
+  }, {
+    "address" : {
+      "city" : "Camberwell"
+    },
+    "cuisine" : 3,
+    "features" : {
+      "2" : true
+    },
+    "name" : "Bangkok Terrace",
+    "rating" : 5
+  }, {
+    "address" : {
+      "city" : "Camberwell"
+    },
+    "cuisine" : 3,
+    "features" : [ null, true ],
+    "name" : "Red Spice Road",
+    "rating" : 5
+  } ]
+}
