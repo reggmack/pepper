@@ -28,7 +28,10 @@ export class AppComponent {
 
         this.restaurants = this.af.database.list('/restaurants', {
             query: {
-                orderByChild: 'address/city'
+                orderByChild: 'rating',
+                // equalTo: 5
+                startAt: 3,
+                endAt: 4
             }
         });
             /*.map(restaurants => {
