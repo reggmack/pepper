@@ -19,6 +19,7 @@ export class AppComponent {
         this.restaurant = this.af.database.object('/restaurant');
     }
     
+    
     add() {
         this.cuisines.push({
             name: 'Asian',
@@ -26,6 +27,10 @@ export class AppComponent {
                 description: '...'
             }
         });
+    }
+    
+    update() {
+        this.af.database.object('/favorites/1/10').set(null);
     }
     
 }
