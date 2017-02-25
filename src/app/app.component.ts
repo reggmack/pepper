@@ -19,41 +19,22 @@ export class AppComponent {
     }
     
     ngOnInit() {
-        this.cuisines = this.af.database.list('/cuisines', {
-            query: {
-                orderByValue: true
-            }
-        });
+        // /restaurants
+        // /restaurants-by-city/camberwell
 
+        this.af.database.list('/restaurants').push({ name: '' })
+            .then(x => {
+                // x.key
 
-        this.restaurants = this.af.database.list('/restaurants', {
-            query: {
-                orderByChild: 'rating',
-                equalTo: 5,
-                // limitToFirst: 50
-                limitToLast: 50
-            }
-        });
-            /*.map(restaurants => {
-       
-                restaurants.map(restaurant => {
-                    restaurant.featureTypes = [];
-                    for (var f in restaurant.features)
-                        restaurant.featureTypes.push(this.af.database.object('/features/' + f));
-                });
-               
-                return restaurants;
-            });*/
-            
-           
-           
-            // /restaurants/1/features/1
-            this.exists = this.af.database.object('restaurants/1/features/1'); 
+                let restaurant = { name: 'My New Restaurant' };
 
-            this.exists.take(1).subscribe(x => {
-                if (x && x.$value) console.log("EXISTS");
-                else console.log("NOT EXISTS");
-            });   
+                let update = {};
+                //update.firstName = '';
+                update['restaurants/' + x.key] = { name: 'My New Restaurant' };
+                update['restaurants-by-city/camberwell' + x.key] = { name: 'My New Restaurant' };
+
+                this.af.database.object('/').update(update);
+            });
     }
         
 }
