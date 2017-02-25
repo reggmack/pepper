@@ -33,4 +33,11 @@ export class AppComponent {
         this.af.database.object('/favorites/1/10').set(null);
     }
     
+    remove() {
+        this.af.database.object('restaurant').remove()
+            .then(x => console.log("SUCCESS"))
+            .catch(error => console.log("ERROR", error));
+    }
+    
+    
 }
