@@ -19,9 +19,19 @@ export class AppComponent {
     }
     
     ngOnInit() {
-        this.cuisines = this.af.database.list('/cuisines');
-        this.restaurants = this.af.database.list('/restaurants')
-            .map(restaurants => {
+        this.cuisines = this.af.database.list('/cuisines', {
+            query: {
+                orderByValue: true
+            }
+        });
+
+
+        this.restaurants = this.af.database.list('/restaurants', {
+            query: {
+                orderByChild: 'address/city'
+            }
+        });
+            /*.map(restaurants => {
        
                 restaurants.map(restaurant => {
                     restaurant.featureTypes = [];
@@ -30,8 +40,10 @@ export class AppComponent {
                 });
                
                 return restaurants;
-            });
+            });*/
             
+           
+           
             // /restaurants/1/features/1
             this.exists = this.af.database.object('restaurants/1/features/1'); 
 
