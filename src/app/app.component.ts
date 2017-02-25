@@ -10,10 +10,24 @@ import 'rxjs/add/operator/take';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+    displayName;
+    photoURL;
+
     constructor(private af: AngularFire){    
     }
 
     ngOnInit() {
+        this.af.auth.subscribe(authState => {
+            if (!authState) {
+                // console.log("NOT LOGGED IN");
+                this.displayName = null;
+                this.photoURL = null;
+                return;
+            }
+                // console.log("LOGGED IN", authState);
+                this.displayName = authState.auth.displayName;
+                this.photoURL = authState.auth.photoURL;
+        });
     }
 
     login() {    

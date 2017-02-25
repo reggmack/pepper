@@ -1,3 +1,4 @@
-<h1>What's Up</h1>
+<h1>What's Up {{ displayName }}</h1>
+<img *ngIf="photoURL" src="{{ photoURL }}" alt="">
 <button (click)="login()">Login</button>
 <button (click)="logout()">Logout</button>
